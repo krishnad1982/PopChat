@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseStorage
+
 
 class PictureViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -29,7 +31,35 @@ class PictureViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     
     @IBAction func btnNext(_ sender: AnyObject) {
-        
+        lblNext.isEnabled=false
+        if isUploaded(){
+            performSegue(withIdentifier: "selectUserSegue", sender: nil)
+        }else{
+            //alert code
+            let alert=UIAlertController(title: "Information", message: "please check your internet connection!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: { 
+                self.lblNext.isEnabled=true
+            })
+            //alert code end here
+        }
+    }
+    
+    func isUploaded()->Bool{
+        var done:Bool=false
+        let imgFolder=FIRStorage.storage().reference().child("images")
+        let imgData=UIImageJPEGRepresentation(imgView.image!, 0.1)
+        imgFolder.child("images.png").put(imgData!, metadata: nil) { (metadata, error) in
+            if error != nil{
+                done=false
+            }else{
+                done=true
+            }
+        }
+        return done
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     @IBAction func btnCamera(_ sender: AnyObject) {
         imgPicker.sourceType = .savedPhotosAlbum
