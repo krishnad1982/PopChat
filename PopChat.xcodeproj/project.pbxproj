@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0E26751E6894A5000A36AF /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E26741E6894A5000A36AF /* SnapsViewController.swift */; };
+		0C0E26791E68987E000A36AF /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E26781E68987E000A36AF /* PictureViewController.swift */; };
 		0C1315AE1E65FC26007DC695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1315AD1E65FC26007DC695 /* AppDelegate.swift */; };
-		0C1315B01E65FC26007DC695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1315AF1E65FC26007DC695 /* ViewController.swift */; };
+		0C1315B01E65FC26007DC695 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1315AF1E65FC26007DC695 /* SignInViewController.swift */; };
 		0C1315B31E65FC26007DC695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1315B11E65FC26007DC695 /* Main.storyboard */; };
 		0C1315B51E65FC26007DC695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1315B41E65FC26007DC695 /* Assets.xcassets */; };
 		0C1315B81E65FC26007DC695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1315B61E65FC26007DC695 /* LaunchScreen.storyboard */; };
+		0C1315C01E65FEE0007DC695 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C1315BF1E65FEE0007DC695 /* GoogleService-Info.plist */; };
+		3B2FDD40FF0E934CBC32CA67 /* Pods_PopChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA97D5CD0DD09B9C3C0FB0E /* Pods_PopChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		012B65EE4B8D10514D198352 /* Pods-PopChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopChat/Pods-PopChat.debug.xcconfig"; sourceTree = "<group>"; };
+		0C0E26741E6894A5000A36AF /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
+		0C0E26781E68987E000A36AF /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		0C1315AA1E65FC26007DC695 /* PopChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1315AD1E65FC26007DC695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C1315AF1E65FC26007DC695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0C1315AF1E65FC26007DC695 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0C1315B21E65FC26007DC695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C1315B41E65FC26007DC695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C1315B71E65FC26007DC695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C1315B91E65FC26007DC695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C1315BF1E65FEE0007DC695 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A910FCB0FC277D970A0A6374 /* Pods-PopChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopChat/Pods-PopChat.release.xcconfig"; sourceTree = "<group>"; };
+		EBA97D5CD0DD09B9C3C0FB0E /* Pods_PopChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2FDD40FF0E934CBC32CA67 /* Pods_PopChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				0C1315AC1E65FC26007DC695 /* PopChat */,
 				0C1315AB1E65FC26007DC695 /* Products */,
+				B7A809AA991B6E441EEAEB3B /* Pods */,
+				10BE71A3E673F88040790466 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +68,33 @@
 			isa = PBXGroup;
 			children = (
 				0C1315AD1E65FC26007DC695 /* AppDelegate.swift */,
-				0C1315AF1E65FC26007DC695 /* ViewController.swift */,
+				0C1315AF1E65FC26007DC695 /* SignInViewController.swift */,
+				0C0E26741E6894A5000A36AF /* SnapsViewController.swift */,
+				0C0E26781E68987E000A36AF /* PictureViewController.swift */,
 				0C1315B11E65FC26007DC695 /* Main.storyboard */,
 				0C1315B41E65FC26007DC695 /* Assets.xcassets */,
 				0C1315B61E65FC26007DC695 /* LaunchScreen.storyboard */,
 				0C1315B91E65FC26007DC695 /* Info.plist */,
+				0C1315BF1E65FEE0007DC695 /* GoogleService-Info.plist */,
 			);
 			path = PopChat;
+			sourceTree = "<group>";
+		};
+		10BE71A3E673F88040790466 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBA97D5CD0DD09B9C3C0FB0E /* Pods_PopChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7A809AA991B6E441EEAEB3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				012B65EE4B8D10514D198352 /* Pods-PopChat.debug.xcconfig */,
+				A910FCB0FC277D970A0A6374 /* Pods-PopChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C1315BC1E65FC26007DC695 /* Build configuration list for PBXNativeTarget "PopChat" */;
 			buildPhases = (
+				3D085979C1035E37D0225DED /* [CP] Check Pods Manifest.lock */,
 				0C1315A61E65FC26007DC695 /* Sources */,
 				0C1315A71E65FC26007DC695 /* Frameworks */,
 				0C1315A81E65FC26007DC695 /* Resources */,
+				E08D4969053C7D53FBAB97FF /* [CP] Embed Pods Frameworks */,
+				BBFAB97A64FC3CF30F66FA9E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C1315B81E65FC26007DC695 /* LaunchScreen.storyboard in Resources */,
+				0C1315C01E65FEE0007DC695 /* GoogleService-Info.plist in Resources */,
 				0C1315B51E65FC26007DC695 /* Assets.xcassets in Resources */,
 				0C1315B31E65FC26007DC695 /* Main.storyboard in Resources */,
 			);
@@ -132,13 +169,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D085979C1035E37D0225DED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBFAB97A64FC3CF30F66FA9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PopChat/Pods-PopChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E08D4969053C7D53FBAB97FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PopChat/Pods-PopChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C1315A61E65FC26007DC695 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C1315B01E65FC26007DC695 /* ViewController.swift in Sources */,
+				0C1315B01E65FC26007DC695 /* SignInViewController.swift in Sources */,
+				0C0E26791E68987E000A36AF /* PictureViewController.swift in Sources */,
 				0C1315AE1E65FC26007DC695 /* AppDelegate.swift in Sources */,
+				0C0E26751E6894A5000A36AF /* SnapsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +269,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -232,6 +320,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -259,6 +348,7 @@
 		};
 		0C1315BD1E65FC26007DC695 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012B65EE4B8D10514D198352 /* Pods-PopChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UHP6HQ52JT;
@@ -272,6 +362,7 @@
 		};
 		0C1315BE1E65FC26007DC695 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A910FCB0FC277D970A0A6374 /* Pods-PopChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UHP6HQ52JT;
@@ -302,6 +393,7 @@
 				0C1315BE1E65FC26007DC695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
