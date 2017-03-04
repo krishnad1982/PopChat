@@ -17,6 +17,7 @@ class PictureViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var txtDescription: UITextField!
     @IBOutlet weak var lblNext: UIButton!
     let imgPicker=UIImagePickerController()
+    let utility=Utility()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,34 +33,23 @@ class PictureViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBAction func btnNext(_ sender: AnyObject) {
         lblNext.isEnabled=false
-        if isUploaded(){
-            performSegue(withIdentifier: "selectUserSegue", sender: nil)
-        }else{
-            //alert code
-            let alert=UIAlertController(title: "Information", message: "please check your internet connection!", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: { 
-                self.lblNext.isEnabled=true
-            })
-            //alert code end here
-        }
-    }
-    
-    func isUploaded()->Bool{
-        var done:Bool=false
         let imgFolder=FIRStorage.storage().reference().child("images")
         let imgData=UIImageJPEGRepresentation(imgView.image!, 0.1)
-        imgFolder.child("images.png").put(imgData!, metadata: nil) { (metadata, error) in
+        imgFolder.child("\(NSUUID().uuidString).jpg").put(imgData!, metadata: nil) { (metadata, error) in
             if error != nil{
-                done=false
+                self.utility.generateAlert(title: "Information", message: "Please check your internet connection", actiontitle: "Ok", page: self)
+                self.lblNext.isEnabled=true
             }else{
-                done=true
+                let snapInfo:[String:String]=["Description":self.txtDescription.text!,"imageURL":(metadata?.downloadURL()?.absoluteString)!]
+                self.performSegue(withIdentifier: "selectUserSegue", sender: snapInfo)
             }
         }
-        return done
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVc=segue.destination as! SelectUserViewController
+        nextVc.snapInfo=sender as! [String:String]
+        
     }
     @IBAction func btnCamera(_ sender: AnyObject) {
         imgPicker.sourceType = .savedPhotosAlbum

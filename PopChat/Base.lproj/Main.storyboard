@@ -66,36 +66,6 @@
             </objects>
             <point key="canvasLocation" x="330" y="101"/>
         </scene>
-        <!--Snaps View Controller-->
-        <scene sceneID="NC3-9U-O8Z">
-            <objects>
-                <viewController id="0pL-3b-TwS" customClass="SnapsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Hd-bz-yDa"/>
-                        <viewControllerLayoutGuide type="bottom" id="HvZ-DM-sOh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8ar-s1-crz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Bfk-L6-biM">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="00e-sJ-6r2">
-                            <connections>
-                                <action selector="btnLogout:" destination="0pL-3b-TwS" id="Iv4-df-CBA"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ib1-eA-LIQ">
-                            <connections>
-                                <segue destination="ZVA-0P-V2q" kind="show" id="J7A-u8-Rsi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tsk-Os-yez" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1767" y="99"/>
-        </scene>
         <!--Picture View Controller-->
         <scene sceneID="qJA-GV-wcz">
             <objects>
@@ -160,12 +130,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PV9-7B-AVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2495" y="100"/>
+            <point key="canvasLocation" x="2433" y="99"/>
         </scene>
-        <!--View Controller-->
+        <!--Select User View Controller-->
         <scene sceneID="K4f-Em-7QH">
             <objects>
-                <viewController id="ZBj-TQ-5tJ" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZBj-TQ-5tJ" customClass="SelectUserViewController" customModule="PopChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LLJ-tV-Mes"/>
                         <viewControllerLayoutGuide type="bottom" id="tcG-1E-xsd"/>
@@ -173,8 +143,27 @@
                     <view key="view" contentMode="scaleToFill" id="938-dv-5sz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DRI-Pt-pgb">
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iGr-g0-NeX">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DRI-Pt-pgb" secondAttribute="trailing" id="4Yc-ZG-EI6"/>
+                            <constraint firstItem="DRI-Pt-pgb" firstAttribute="centerX" secondItem="938-dv-5sz" secondAttribute="centerX" id="UgN-1I-HRc"/>
+                            <constraint firstItem="tcG-1E-xsd" firstAttribute="top" secondItem="DRI-Pt-pgb" secondAttribute="bottom" id="oGB-je-hR8"/>
+                            <constraint firstItem="DRI-Pt-pgb" firstAttribute="top" secondItem="LLJ-tV-Mes" secondAttribute="bottom" id="sGY-fA-BUe"/>
+                            <constraint firstItem="DRI-Pt-pgb" firstAttribute="leading" secondItem="938-dv-5sz" secondAttribute="leading" id="vVw-Vo-Z2y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblView" destination="iGr-g0-NeX" id="fva-H2-qnP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDm-Pv-QyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,12 +180,57 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0pL-3b-TwS" kind="relationship" relationship="rootViewController" id="OG1-eH-bc0"/>
+                        <segue destination="25K-xE-dvu" kind="relationship" relationship="rootViewController" id="D9U-e0-eMB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYA-g9-UEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1070" y="100"/>
+        </scene>
+        <!--Snaps View Controller-->
+        <scene sceneID="Nd1-0H-nVL">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="25K-xE-dvu" customClass="SnapsViewController" customModule="PopChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5xU-f1-GOe"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Ws-IK-KzG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QxN-nd-7fK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dUA-vZ-hPn">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dUA-vZ-hPn" firstAttribute="centerX" secondItem="QxN-nd-7fK" secondAttribute="centerX" id="FXI-Z9-gME"/>
+                            <constraint firstAttribute="trailing" secondItem="dUA-vZ-hPn" secondAttribute="trailing" id="MRH-Aa-hVE"/>
+                            <constraint firstItem="dUA-vZ-hPn" firstAttribute="leading" secondItem="QxN-nd-7fK" secondAttribute="leading" id="Vv8-Oo-vxG"/>
+                            <constraint firstItem="2Ws-IK-KzG" firstAttribute="top" secondItem="dUA-vZ-hPn" secondAttribute="bottom" id="xbg-Mk-fIn"/>
+                            <constraint firstItem="dUA-vZ-hPn" firstAttribute="top" secondItem="5xU-f1-GOe" secondAttribute="bottom" id="yP6-hZ-Oxm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XWj-4s-oQo">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="32B-nF-9T2">
+                            <connections>
+                                <action selector="btnLogout:" destination="25K-xE-dvu" id="qMI-6n-78p"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="frd-Kv-P8e">
+                            <connections>
+                                <segue destination="ZVA-0P-V2q" kind="show" id="nye-WN-sqg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblView" destination="dUA-vZ-hPn" id="Ent-dD-Rkb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PgS-pH-LLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="100"/>
         </scene>
     </scenes>
 </document>
