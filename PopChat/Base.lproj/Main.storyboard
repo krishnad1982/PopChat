@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="msY-to-FGS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="msY-to-FGS">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Q94-Uc-WhF"/>
                                     <constraint firstAttribute="width" constant="240" id="Z9P-Pr-sdz"/>
@@ -220,17 +220,65 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="frd-Kv-P8e">
                             <connections>
-                                <segue destination="ZVA-0P-V2q" kind="show" id="nye-WN-sqg"/>
+                                <segue destination="ZVA-0P-V2q" kind="show" identifier="addSegue" id="nye-WN-sqg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tblView" destination="dUA-vZ-hPn" id="Ent-dD-Rkb"/>
+                        <segue destination="fSC-bQ-HNd" kind="show" identifier="detailsSegue" id="IVs-G6-GVZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgS-pH-LLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1754" y="100"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="HOb-KL-ESi">
+            <objects>
+                <viewController id="fSC-bQ-HNd" customClass="DetailsViewController" customModule="PopChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjF-jo-A6Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="QEI-aX-dog"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gQR-4V-nXT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-AT-a01">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZGW-bP-KgP"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Q0l-Nm-mCB"/>
+                                    <constraint firstAttribute="height" constant="180" id="z41-mn-AFT"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-aY-jTY">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NTM-aY-jTY" firstAttribute="top" secondItem="ZGW-bP-KgP" secondAttribute="bottom" constant="20" id="K6f-1D-pt3"/>
+                            <constraint firstItem="NTM-aY-jTY" firstAttribute="centerX" secondItem="gQR-4V-nXT" secondAttribute="centerX" id="PJ4-aS-nJY"/>
+                            <constraint firstItem="4sc-AT-a01" firstAttribute="centerX" secondItem="gQR-4V-nXT" secondAttribute="centerX" id="hlV-wk-y0z"/>
+                            <constraint firstItem="4sc-AT-a01" firstAttribute="top" secondItem="hjF-jo-A6Q" secondAttribute="bottom" constant="10" id="i2g-CI-8sb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="ZGW-bP-KgP" id="ySQ-eh-sp2"/>
+                        <outlet property="lblDescription" destination="NTM-aY-jTY" id="BV7-E2-Y4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFp-Oh-J3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="826"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="loading.png" width="325" height="260"/>
+    </resources>
 </document>

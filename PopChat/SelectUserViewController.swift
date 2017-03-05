@@ -8,12 +8,13 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class SelectUserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tblView: UITableView!
     var users:[Users]=[]
-    var snapInfo:[String:String]=[:]
+    var snapInfo:Snap=Snap()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,10 @@ class SelectUserViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user=users[indexPath.row]
-        let snaps:[String:String] = ["from":user.email,"imageURL":snapInfo["imageURL"]!,"description":snapInfo["Description"]!]
+        let snaps:[String:String] = ["from":(FIRAuth.auth()?.currentUser?.email)!,"imageURL":snapInfo.imageUrl,"description":snapInfo.description,"uuid":snapInfo.uuid]
         FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snaps)
         tblView.deselectRow(at: indexPath, animated: true)
+        navigationController!.popToRootViewController(animated: true)
     }
     
     //fetch data from firebase
@@ -52,6 +54,7 @@ class SelectUserViewController: UIViewController,UITableViewDelegate,UITableView
             let user=Users()
             user.email=((snapshot.value as? NSDictionary)?["email"] as? String)!
             user.uid=snapshot.key
+            
             self.users.append(user)
             self.tblView.reloadData()
         })

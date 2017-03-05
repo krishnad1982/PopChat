@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 
 class SnapsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -16,6 +17,7 @@ class SnapsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @IBOutlet weak var tblView: UITableView!
     var snaps:[Snap]=[]
+    
     
     
     override func viewDidLoad() {
@@ -37,28 +39,64 @@ class SnapsViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snaps.count
+        if snaps.count==0{
+            return 1
+        }else{
+            return snaps.count
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=UITableViewCell()
-        let snaps=self.snaps[indexPath.row]
-        cell.textLabel?.text=snaps.from
+        if snaps.count==0{
+            cell.textLabel?.text="No spans to dispaly!"
+        }else{
+            let snapiInfos=self.snaps[indexPath.row]
+            cell.textLabel?.text=snapiInfos.from
+        }
         return cell
     }
     
-    //fetch data from firebase
-    func fetchData(){
-        // fetch from firebase
-        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("snaps").observe(FIRDataEventType.childAdded,with: { (snapshot) in
-            let snaps=Snap()
-            snaps.from=((snapshot.value as? NSDictionary)?["from"] as? String)!
-            snaps.description=((snapshot.value as? NSDictionary)?["description"] as? String)!
-            snaps.imageUrl=((snapshot.value as? NSDictionary)?["imageURL"] as? String)!
-            self.snaps.append(snaps)
-            self.tblView.reloadData()
-        })
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let snap=snaps[indexPath.row]
+        //let details:[String:String]=["Description":snap.description,"ImageURL":snap.imageUrl]
+        performSegue(withIdentifier: "detailsSegue", sender: snap)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier=="detailsSegue"{
+            let nextVc=segue.destination as! DetailsViewController
+            nextVc.snaps=sender as! Snap
+        }
+    }
+    
+    
+    //fetch data from firebase
+    func fetchData(){
+        // child add event firebase
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("snaps").observe(FIRDataEventType.childAdded,with: { (snapshot) in
+            let snap=Snap()
+            snap.from=((snapshot.value as? NSDictionary)?["from"] as? String)!
+            snap.description=((snapshot.value as? NSDictionary)?["description"] as? String)!
+            snap.imageUrl=((snapshot.value as? NSDictionary)?["imageURL"] as? String)!
+            snap.uid=snapshot.key
+            snap.uuid=((snapshot.value as? NSDictionary)?["uuid"] as? String)!
+            self.snaps.append(snap)
+            self.tblView.reloadData()
+        })
+        removeData()
+    }
+    func removeData(){
+        // child removed event
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("snaps").observe(FIRDataEventType.childRemoved,with: { (snapshot) in
+            var index=0
+            for snap in self.snaps{
+                if snap.uid==snapshot.key{
+                    self.snaps.remove(at: index)
+                }
+            }
+            index+=1
+            self.tblView.reloadData()
+        })
+    }
     
 }
