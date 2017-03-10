@@ -57,7 +57,7 @@ class PictureViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     @IBAction func btnCamera(_ sender: AnyObject) {
-        imgPicker.sourceType = .savedPhotosAlbum
+        imgPicker.sourceType = .photoLibrary
         present(imgPicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
